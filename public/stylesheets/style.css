@@ -6,3 +6,31 @@
 	width: 30%;
 	margin: 25px auto;
 }
+
+.items {
+	width: 20%;
+}
+
+.containt {
+	width: 60%;
+	padding: 10px;
+	margin: 10px auto 10px auto;
+	/*border: 1px solid black;*/
+	border-radius: 20px;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.solved {
+	background-color: lightgreen;
+}
+
+.unsolved {
+	background-color: red;
+}
+
+.acknowdged {
+	background-color: yellow;
+}

@@ -8,7 +8,14 @@ router.get("/", (req, res) =>{
 });
 
 router.get("/products", (req, res) =>{
-	res.render("products/index");
+	Product.find({}, (err, allProducts) =>{
+		if(err){
+			console.log(err);
+		} else {
+			res.render("products/index", {products: allProducts});
+		}
+	});
+	
 });
 
 router.get("/products/new", (req, res) =>{
@@ -22,10 +29,12 @@ router.post("/products", (req, res) =>{
 			console.log(err);
 		} else{
 			product.save();
-			console.log(product);
+			//console.log(product);
 			res.redirect("/products");
 		}
 	});
 });
+
+
 
 module.exports = router;

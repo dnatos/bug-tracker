@@ -10,10 +10,13 @@
 			<div class="form-group forms">
 				<form method="POST" action="/products">
 					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Name of the product" name="product[product_name]">
+						<input class="form-control" type="text" placeholder="Name of the product" name="product[name]">
 					</div>
 					<div class="form-group">
-						<select class="form-control" name="product[product_type]" >
+						<input class="form-control" type="text" placeholder="Oneline specs" name="product[description]">
+					</div>
+					<div class="form-group">
+						<select class="form-control" name="product[type]" >
 					      <option>Smartphone</option>
 					      <option>Tablet</option>
 					    </select>
