@@ -13,6 +13,6 @@ Destroy 	DELETE 	/products/:id
 
 Bug status
 ----------
-acknowlwdged
+acknowledged
 unsolved
 solved

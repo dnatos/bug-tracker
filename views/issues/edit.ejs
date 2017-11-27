@@ -1,0 +1,25 @@
+<%include ../partials/header%>
+<h1> This is the edit page</h1>
+
+<div class="container">
+			<div class="form-group forms">
+				<h5>Edit issue of <%=product.name%></h5>
+				<form method="POST" action="/products/<%=product._id%>/issues/<%=issue._id%>?_method=PUT">
+					<div class="form-group">
+						<input class="form-control" type="text" value="<%=issue.title%>" name="issues[title]">
+					</div>
+					<div class="form-group">
+						<textarea style="white-space: pre-wrap; white-space: pre-line;" class="form-control" name="issues[description]"><%=issue.description.trim()%></textarea>
+					</div>
+					<div class="form-group">
+						<select class="form-control" name="issues[state]" >
+					      <option>Acknowledged</option>
+					      <option>Unsolved</option>
+					      <option>Solved</option>
+					    </select>
+					</div>
+					<button class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+	</div>
+<%include ../partials/footer%>

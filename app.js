@@ -10,7 +10,7 @@ var express 		= require("express"),
 var productRoutes 	= require("./routes/products");
 var issueRoutes		= require("./routes/issues");
 
-mongoose.Promise = global.Promise;
+mongoose.Promise 	= global.Promise;
 mongoose.connect("mongodb://localhost/bug_tracker", {useMongoClient: true});
 
 app.set("view engine", "ejs");

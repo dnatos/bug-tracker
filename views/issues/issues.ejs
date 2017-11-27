@@ -3,14 +3,16 @@
 
 		<div class="container">
 			<%products.issue.forEach(function(issues){%>
-		
-				<div class="containt solved">
+				<div id="a" class="containt <%=issues.state%>">
 					<div class="title">
 						<h6><%=issues.title%></h6>
 					</div>
 					<hr>
 					<div class="description">
-						<h6><%=issues.description%> </h6>
+						<h6><%=issues.description%></h6>
+					</div>
+					<div id="b">
+						<a href="/products/<%=products._id%>/issues/<%=issues._id%>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
 					</div>
 				</div>
 			<%});%>
@@ -23,8 +25,7 @@
 						<input class="form-control" type="text" placeholder="Title of issue" name="issues[title]">
 					</div>
 					<div class="form-group">
-						<textarea class="form-control" name="issues[description]">
-						</textarea>
+						<textarea class="form-control" name="issues[description]"></textarea>
 					</div>
 					<div class="form-group">
 						<select class="form-control" name="issues[state]" >
@@ -37,4 +38,6 @@
 				</form>
 			</div>
 	</div>
+
+	
 <%include ../partials/footer%>

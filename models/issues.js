@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var issuesSchema = new mongoose.Schema({
 	title: String,
-	description: String,
+	description: {type:String, trim: true},
 	state: String
 });
 

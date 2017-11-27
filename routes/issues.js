@@ -34,6 +34,32 @@ router.post("/products/:id/issues", (req, res) =>{
 			});
 		}
 	});
+});
+
+router.get("/products/:id/issues/:issueid/edit", (req, res) =>{
+	Product.findById(req.params.id, (err, product)=>{
+		if(err){
+			console.log(err);
+		}else {
+			Issues.findById(req.params.issueid, (err, issue) => {
+				if(err){
+					console.log(err);
+				}else {
+					res.render("issues/edit", {product: product, issue: issue});
+				}
+			});
+		}
+	});
+});
+
+router.put("/products/:id/issues/:issueid", (req,res) =>{
+	Issues.findByIdAndUpdate(req.params.issueid, req.body.issues, (err) =>{
+		if(err){
+			console.log(err);
+		} else{
+			res.redirect("/products/" + req.params.id + "/issues");
+		}
+	});
 
 });
 

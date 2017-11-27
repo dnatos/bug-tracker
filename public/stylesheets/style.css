@@ -1,3 +1,6 @@
+body {
+	font-family: 'Raleway', sans-serif;
+}
 .jumbotron {
 	text-align: center;
 }
@@ -12,25 +15,30 @@
 }
 
 .containt {
-	width: 60%;
+	width: 80%;
 	padding: 10px;
 	margin: 10px auto 10px auto;
 	/*border: 1px solid black;*/
-	border-radius: 20px;
+	border-radius: 10px;
 }
 
 .title {
 	font-weight: bold;
 }
 
-.solved {
-	background-color: lightgreen;
+.Solved {
+	background-color: #33cc33;
 }
 
-.unsolved {
-	background-color: red;
+.Unsolved {
+	background-color: #cc3300;
 }
 
-.acknowdged {
-	background-color: yellow;
+.Acknowledged {
+	background-color: #e6e600;
 }
+#b {
+	border-top: 1px dashed grey;
+	padding-top: 4px;
+}
+
