@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	</head>
+	<body>
+		<h1 style="text-align: center"><%=product.name%> Issues</h1>
+		<div class="container ">
+			<%product.issue.forEach(function(issues){%>
+				<%if(issues.state == "Unsolved"){%>
+					<div id="a" class="content <%=issues.state%> issues-list-items">
+						<div class="title">
+							<h6><%=issues.title%></h6>
+						</div>
+						<hr>
+						<div class="description">
+							<h6><%=issues.description%></h6>
+						</div>
+					
+					</div>
+				<%}%>
+			<%});%>
+		</div>
+	</body>
+</html>
+
+
+

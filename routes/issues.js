@@ -17,23 +17,36 @@ router.get("/products/:id/issues", (req, res) =>{
 });
 
 router.post("/products/:id/issues", (req, res) =>{
-	Product.findById(req.params.id, (err, product)=>{
-		if(err){
-			console.log(err);
-			res.redirect("/products");
-		} else {
-			Issues.create(req.body.issues, (err, issue) =>{
-				if(err){
-					console.log(err);
-				} else{
-					issue.save();
-					product.issue.push(issue);
-					product.save();
-					res.redirect("/products/" + req.params.id + "/issues");
-				}
-			});
-		}
-	});
+	if(req.body.issues.export === "export"){
+		Product.findById(req.params.id).populate("issue").exec((err, product) =>{
+			if(err){
+				res.redirect("back");
+			} else {
+				console.log("Export button hitted");
+				res.render("issues/list", {product: product});
+			}
+
+		});
+	}else{
+
+		Product.findById(req.params.id, (err, product)=>{
+			if(err){
+				console.log(err);
+				res.redirect("/products");
+			} else {
+				Issues.create(req.body.issues, (err, issue) =>{
+					if(err){
+						console.log(err);
+					} else{
+						issue.save();
+						product.issue.push(issue);
+						product.save();
+						res.redirect("/products/" + req.params.id + "/issues");
+					}
+				});
+			}
+		});
+	}
 });
 
 router.get("/products/:id/issues/:issueid/edit", (req, res) =>{
@@ -61,6 +74,15 @@ router.put("/products/:id/issues/:issueid", (req,res) =>{
 		}
 	});
 
+});
+
+router.delete("/products/:id/issues/:issueid", (req,res)=>{
+	Issues.findByIdAndRemove(req.params.issueid, (err, issue) =>{
+		if(err){
+			console.log(err);
+		}
+		res.redirect("back");
+	});
 });
 
 module.exports = router;

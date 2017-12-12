@@ -1,0 +1,91 @@
+
+.brand {
+	padding: 40px;
+	margin-bottom: 30px;
+	text-align: center;
+	
+}
+
+.brand p {
+	font-size: 50px;
+	animation-name: brand;
+	animation-duration: 3s;
+	animation-delay: 0s;
+	color: grey;
+}
+
+
+span {
+	animation-name: dot;
+	animation-duration: 3s;
+	animation-delay: 0s;
+}
+.container_boxes{
+	display: flex;
+	justify-content: center;
+
+}
+
+.box {
+	border: 1px solid lightgrey;
+	border-width: thin;
+	padding: 40px;
+	margin: 15px;
+	border-radius: 15%;
+	animation-name: efe;
+	
+	animation-duration: 3s;
+	animation-delay: 0s;
+	/*background-color: rgba(247, 246, 239, 0.3);*/
+	background-opacity: 0.65;
+	/*text-shadow: 1px 1px 0px grey;*/
+}
+
+.items {
+	color: grey;
+	text-decoration: none;
+}
+
+.items:hover {
+	color: rgb(149, 244, 66);
+}
+
+@keyframes efe {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes brand {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0.25;
+	}
+	50% {
+		opacity: 0.75;
+	}
+	75% {
+		opacity: 1;
+	}
+}
+
+@keyframes dot {
+	0% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}

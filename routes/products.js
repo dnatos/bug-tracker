@@ -1,13 +1,14 @@
 var express	 	= require("express"),
 	router 		= express.Router(),
- 	Product		= require("../models/products");
+ 	Product		= require("../models/products"),
+ 	middleware 	= require("../middleware");
 
 
 router.get("/", (req, res) =>{
 	res.render("home")
 });
 
-router.get("/products", (req, res) =>{
+router.get("/products", middleware.isLoggedIn, (req, res) =>{
 	Product.find({}, (err, allProducts) =>{
 		if(err){
 			console.log(err);

@@ -1,6 +1,4 @@
 <%include ../partials/header %>
-
-	
 	<div class="container">
 		<div class="row">
 			<div class="jumbotron">
@@ -13,36 +11,32 @@
 		<div class="row" style="display:flex; flex-wrap:wrap; flex-basis: 25%; flex-grow: 1;" >
 			<%products.forEach(function(product){%>
 				<%if(product.type === "Smartphone"){%>
-				<div class="card" style="width: 15%;">
-					<a href="/products/<%=product._id%>/issues">
+					<div class="card" style="width: 15%;">
+						<a href="/products/<%=product._id%>/issues">
 						<div class="card-block">
 							<h4 class="card-title"><%=product.name%></h4>
 							<h6 class="card-subtitle mb-2 text-muted"><%=product.type%></h6>
 							<p class="card-text"><%=product.description%></p>
 						</div>
-				</div></a>
+					</div></a>
 				<%}%>
 			<%});%>
 		</div>
-
 		<p style="margin-top: 30px;">Tablets</p>
 		<hr>
 		<div class="row" style="display:flex; flex-wrap:wrap; flex-basis: 15%; flex-grow: 1;" >
 			<%products.forEach(function(product){%>
 				<%if(product.type === "Tablet"){%>
-				<div class="card" style="width: 15%;">
-					<a href="/products/<%=product._id%>/issues">
+					<div class="card" style="width: 15%;">
+						<a href="/products/<%=product._id%>/issues">
 						<div class="card-block">
 							<h4 class="card-title"><%=product.name%></h4>
 							<h6 class="card-subtitle mb-2 text-muted"><%=product.type%></h6>
 							<p class="card-text"><%=product.description%></p>
 						</div>
-				</div></a>
+					</div></a>
 				<%}%>
 			<%});%>
 		</div>
-
-
 	</div>
-
 <%include ../partials/footer %>
