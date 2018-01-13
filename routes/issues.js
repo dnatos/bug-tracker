@@ -58,7 +58,7 @@ router.get("/products/:id/issues/:issueid/edit", (req, res) =>{
 				if(err){
 					console.log(err);
 				}else {
-					res.render("issues/edit", {product: product, issue: issue});
+					res.render("issues/show_info", {product: product, issue: issue});
 				}
 			});
 		}

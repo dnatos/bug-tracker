@@ -1,0 +1,38 @@
+<%include ../partials/header%>
+
+
+	
+		<div class="upload_files" style="border: 1px solid grey; width: 40%; height: 45%;">
+
+		</div>
+	
+	<div class="container">
+	<div class="form-group forms">
+		<h5>Edit issue of <%=product.name%></h5>
+		<form method="POST" action="/products/<%=product._id%>/issues/<%=issue._id%>?_method=PUT">
+			<div class="form-group">
+				<input class="form-control" type="text" value="<%=issue.title%>" name="issues[title]">
+			</div>
+			<div class="form-group">
+				<textarea style="white-space: pre-wrap; white-space: pre-line;" class="form-control" name="issues[description]"><%=issue.description.trim()%></textarea>
+			</div>
+			<div class="form-group">
+				<select class="form-control" name="issues[state]" >
+			      <option>Acknowledged</option>
+			      <option>Unsolved</option>
+			      <option>Solved</option>
+			    </select>
+			</div>
+			<div class="form-group">
+				<input type="file" name="file">
+				<button class="btn btn-default btn-xs ">upload</button>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary form-group">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<%include ../partials/footer%>

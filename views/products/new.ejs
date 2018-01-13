@@ -7,19 +7,32 @@
 		</div>
 		<div class="form-group forms">
 			<form method="POST" action="/products">
+				<label for="product_name">Product Name</label>
 				<div class="form-group">
-					<input class="form-control" type="text" placeholder="Product name" name="product[name]">
+					<input class="form-control" id="product_name" type="text" placeholder="Product name" name="product[name]" required>
 				</div>
+				<label for="product_description">Description</label>
 				<div class="form-group">
-					<input class="form-control" type="text" placeholder="Description" name="product[description]">
+					<input class="form-control" id="product_description" type="text" placeholder="Description" name="product[description]" required>
 				</div>
+				<label for="product_category_list">Product Category</label>
 				<div class="form-group">
-					<select class="form-control" name="product[type]" >
-				    	<option>Smartphone</option>
-				    	<option>Tablet</option>
-				    </select>
+					<select id="product_category_list" class="form-control" name="product[type]" required>
+						<option disabled selected value> -- select an option -- </option>
+
+						<%categories.forEach(function(value){%>
+						<option value="<%=value.category%>"><%=value.category%></option>
+
+						<% });%>
+
+						<option value="new">Add new category</option>
+					</select>
+				<div id="add_category" class="form-group" ">
+					<input class="form-control" type="text" placeholder="press enter to add" name="new_category" id="input_add">
+					<button id="add_btn" class="btn btn-primary btn-sm">Add</button>
 				</div>
-				<button class="btn btn-primary">Submit</button>
+				
+				<button  class="btn btn-primary form-control">Submit</button>
 			</form>
 		</div>
 	</div>

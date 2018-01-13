@@ -1,5 +1,8 @@
 <%include ../partials/header%>
-<h1> This is the page that all the issues will be displayed</h1>
+<div class="container" style="align:center">
+	<h4>Issues list of <%=products.name%></h4>
+</div>
+
 <div class="container">
 	<%products.issue.forEach(function(issues){%>
 		<div id="a" class="content <%=issues.state%>">
@@ -49,5 +52,5 @@
 	</div>
 </div>
 
-	
+
 <%include ../partials/footer%>
