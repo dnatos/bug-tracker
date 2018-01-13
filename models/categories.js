@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 
 var categoriesSchema = new mongoose.Schema({
-	category: String
+	category: {
+		type: String,
+		unique: true
+	}
 });
 
 

@@ -40,7 +40,7 @@ router.get("/products/api/categories", (req, res) =>{
 });
 
 router.post("/products/api/categories/new", (req, res)=>{
-	console.log('inside the route',req.body.cat);
+	
 	Categories.create({category: req.body.cat}, (err, category)=>{
 		if(err){
 			console.log(err);
