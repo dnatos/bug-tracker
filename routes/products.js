@@ -14,13 +14,20 @@ router.get("/products", middleware.isLoggedIn, (req, res) =>{
 		if(err){
 			console.log(err);
 		} else {
-			res.render("products/index", {products: allProducts});
+			Categories.find({}, (err, allCategories)=>{
+				if(err){
+					console.log('error');
+				}
+				else{
+			res.render("products/index", {products: allProducts, categories: allCategories});
+			}
+		});
 		}
 	});
 	
 });
 
-router.get("/products/new", (req, res) =>{
+router.get("/products/new", middleware.isLoggedIn, (req, res) =>{
 	Categories.find({}, (err, allCategories)=>{
 		if(err){
 			console.log('Error');
@@ -32,16 +39,16 @@ router.get("/products/new", (req, res) =>{
 	
 });
 
-router.get("/products/api/categories", (req, res) =>{
+router.get("/products/api/categories", middleware.isLoggedIn, (req, res) =>{
 	Categories.find({}, (err, categories) =>{
 		res.json(categories);
 	})
 
 });
 
-router.post("/products/api/categories/new", (req, res)=>{
+router.post("/products/api/categories/new", middleware.isLoggedIn, (req, res)=>{
 	
-	Categories.create({category: req.body.cat}, (err, category)=>{
+	Categories.create({name: req.body.cat}, (err, category)=>{
 		if(err){
 			console.log(err);
 		}else{
@@ -52,7 +59,7 @@ router.post("/products/api/categories/new", (req, res)=>{
 	//res.redirect('back');
 });
 
-router.post("/products", (req, res) =>{
+router.post("/products", middleware.isLoggedIn, (req, res) =>{
 
 	Product.create(req.body.product, (err, product) =>{
 		if(err){

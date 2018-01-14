@@ -20,8 +20,8 @@
 					<select id="product_category_list" class="form-control" name="product[type]" required>
 						<option disabled selected value> -- select an option -- </option>
 
-						<%categories.forEach(function(value){%>
-						<option value="<%=value.category%>"><%=value.category%></option>
+						<%categories.forEach(function(category){%>
+						<option value="<%=category.name%>"><%=category.name%></option>
 
 						<% });%>
 

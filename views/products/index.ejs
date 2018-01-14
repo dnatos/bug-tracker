@@ -6,36 +6,25 @@
 				<a class="btn btn-primary btn-md" href="/products/new">Create New Product</a>
 			</div>
 		</div>
-		<p>Smartphones</p>
-		<hr>
-		<div class="row" style="display:flex; flex-wrap:wrap; flex-basis: 25%; flex-grow: 1;" >
-			<%products.forEach(function(product){%>
-				<%if(product.type === "Smartphone"){%>
-					<div class="card" style="width: 15%;">
-						<a href="/products/<%=product._id%>/issues">
-						<div class="card-block">
-							<h4 class="card-title"><%=product.name%></h4>
-							<h6 class="card-subtitle mb-2 text-muted"><%=product.type%></h6>
-							<p class="card-text"><%=product.description%></p>
-						</div>
-					</div></a>
-				<%}%>
-			<%});%>
-		</div>
-		<p style="margin-top: 30px;">Tablets</p>
-		<hr>
-		<div class="row" style="display:flex; flex-wrap:wrap; flex-basis: 15%; flex-grow: 1;" >
-			<%products.forEach(function(product){%>
-				<%if(product.type === "Tablet"){%>
-					<div class="card" style="width: 15%;">
-						<a href="/products/<%=product._id%>/issues">
-						<div class="card-block">
-							<h4 class="card-title"><%=product.name%></h4>
-							<h6 class="card-subtitle mb-2 text-muted"><%=product.type%></h6>
-							<p class="card-text"><%=product.description%></p>
-						</div>
-					</div></a>
-				<%}%>
+		<div class="produst_list">
+			<%categories.forEach(function(category){%>
+				<p><%=category.name%></p>
+				<hr>
+				<div class="row" style="display:flex; flex-wrap:wrap; flex-basis: 25%; flex-grow: 1;">
+					<%products.forEach(function(product){%>
+						<%if(product.type === category.name){%>
+							<div class="card" style="width: 15%;">
+								<a href="/products/<%=product._id%>/issues">
+								<div class="card-block">
+									<h4 class="card-title"><%=product.name%></h4>
+									<h6 class="card-subtitle mb-2 text-muted"><%=product.type%></h6>
+									<p class="card-text"><%=product.description%></p>
+								</div>
+							</div></a>
+						<%}%>
+					<br/>
+					<%});%>
+				</div>
 			<%});%>
 		</div>
 	</div>
