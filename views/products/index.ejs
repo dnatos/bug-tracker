@@ -6,8 +6,9 @@
 				<a class="btn btn-primary btn-md" href="/products/new">Create New Product</a>
 			</div>
 		</div>
-		<div class="produst_list">
-			<%categories.forEach(function(category){%>
+		<%categories.forEach(function(category){%>
+			<div class="produst_list">
+				<div class="product_list_inside">
 				<p><%=category.name%></p>
 				<hr>
 				<div class="row" style="display:flex; flex-wrap:wrap; flex-basis: 25%; flex-grow: 1;">
@@ -22,10 +23,10 @@
 								</div>
 							</div></a>
 						<%}%>
-					<br/>
-					<%});%>
+				    <%});%>
 				</div>
-			<%});%>
+			</div>
 		</div>
+		<%});%>
 	</div>
 <%include ../partials/footer %>
