@@ -31,6 +31,7 @@ hr {
 	padding: 10px;
 	margin: 10px auto 10px auto;
 	/*border: 1px solid black;*/
+	box-shadow: 5px 5px #F1F1F1 inset;
 	border-radius: 10px;
 }
 
@@ -40,6 +41,7 @@ hr {
 
 .Solved {
 	background-color: rgba(122, 255, 50, 0.7);
+
 }
 
 .Unsolved {
